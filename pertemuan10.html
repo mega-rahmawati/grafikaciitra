@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=500, initial-scale=1.0">
+  <title>Animasi</title>
+</head>
+<style>
+  #myCanvas {
+    border: 1px solid black;
+  }
+</style>
+<body>
+ <canvas id="myCanvas" width="1300" height="700"></canvas>
+ <script>
+ 	myCanvas = document.querySelector('#myCanvas');
+ 	var contex = myCanvas.getContext("2d");
+ 	// nilai awal
+ 	x = 0;
+ 	y = 200;
+ 	speed_x = 1;
+ 	// fungsi 
+ 	function drawAnimate () {
+ 		contex.clearRect(0,0, innerWidth, innerHeight);
+ 		contex.fillStyle = "lightblue"
+ 		contex.beginPath();
+ 		contex.arc(x,y,50,0,2*Math.PI);
+ 		contex.fill();
+ 		contex.stroke();
+ 		x += speed_x
+ 		console.log(x);
+ 		window.requestAnimationFrame (drawAnimate);
+ 	}
+ 	drawAnimate(); // Pemanggilan fungsi pertama kali
+ </script>
+</body>
+</html>
